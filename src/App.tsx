@@ -2,10 +2,8 @@ import React from 'react';
 import './App.css';
 import { personalInfo } from './data';
 import NavigationButton from './components/NavigationButton';
-import CardModal from './components/CardModal';
 import BinderPage from './components/BinderPage';
 import { useNavigation } from './hooks/useNavigation';
-import { useModal } from './hooks/useModal';
 import { usePageState } from './hooks/usePageState';
 import { useCardData } from './hooks/useCardData';
 
@@ -17,13 +15,6 @@ const App: React.FC = () => {
     handleCategoryClick, 
     handleBackToCover 
   } = useNavigation();
-
-  const { 
-    selectedCard, 
-    isModalOpen, 
-    handleCardClick, 
-    handleCloseModal 
-  } = useModal();
 
   const { 
     currentPage, 
@@ -109,10 +100,10 @@ const App: React.FC = () => {
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
                 ) : (
-                  /* Category Content Page */
+                  /* Category Content Page - Now with detailed cards */
                   <BinderPage
                     cards={currentPageCards}
-                    onCardClick={handleCardClick}
+                    currentCategory={currentCategory}
                     isFlipping={isFlipping}
                   />
                 )}
@@ -157,14 +148,6 @@ const App: React.FC = () => {
           )}
         </div>
       </div>
-
-      {/* Card Detail Modal */}
-      <CardModal
-        isOpen={isModalOpen}
-        card={selectedCard}
-        currentCategory={currentCategory}
-        onClose={handleCloseModal}
-      />
     </div>
   );
 };

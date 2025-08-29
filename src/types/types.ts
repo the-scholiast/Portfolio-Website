@@ -17,7 +17,7 @@ export interface Card {
   description?: string;
   status?: 'mastered' | 'proficient' |'learning' | 'exploring';
   icon?: string;
-  title?: string;
+  title: string;
   content: string;
   technologies?: string[];
   githubUrl?: string;
