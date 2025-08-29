@@ -61,14 +61,16 @@ const App: React.FC = () => {
         {/* Binder */}
         <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-2xl relative border-4 border-gray-700 binder-shadow">
           {/* Binder rings */}
-          <div className="absolute left-2 md:left-3 lg:left-5 top-0 bottom-0 flex flex-col justify-between py-8 md:py-12 lg:py-16">
-            {[1, 2, 3].map((ring) => (
-              <div
-                key={ring}
-                className="w-8 h-16 md:w-10 md:h-20 lg:w-12 lg:h-24 bg-gray-700 rounded-full shadow-inner border-2 border-gray-300 ring-shadow"
-              ></div>
-            ))}
-          </div>
+          {currentCategory && (
+            <div className="absolute left-2 md:left-3 lg:left-5 top-0 bottom-0 flex flex-col justify-between py-8 md:py-12 lg:py-16">
+              {[1, 2, 3].map((ring) => (
+                <div
+                  key={ring}
+                  className="w-8 h-16 md:w-10 md:h-[130px] lg:w-12 lg:h-[160px] bg-gray-700 rounded-full shadow-inner border-2 border-gray-300 ring-shadow"
+                ></div>
+              ))}
+            </div>
+          )}
 
           {/* Page Container */}
           <div className="ml-6 md:ml-8 lg:ml-12 relative binder-page">
@@ -147,23 +149,25 @@ const App: React.FC = () => {
                     </div> */}
 
                     {/* Poker chip */}
-                      <div>
-                        <img
-                          src={personalInfo.pokerChip}
-                          alt={`Poker chip rotating`}
-                          className="w-28 h-34 md:w-36 md:h-42 lg:w-44 lg:h-50"
-                        />
-                      </div>
+                    <div>
+                      <img
+                        src={personalInfo.pokerChip}
+                        alt={`Poker chip rotating`}
+                        className="w-28 h-34 md:w-36 md:h-42 lg:w-44 lg:h-50 animate-spinHorizontal"
+                      />
+                    </div>
 
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
                 ) : (
-                  /* Category Content Page */
-                  <BinderPage
-                    cards={currentPageCards}
-                    currentCategory={currentCategory}
-                    isFlipping={isFlipping}
-                  />
+                  <>
+                    {/* Category Content Page */}
+                    <BinderPage
+                      cards={currentPageCards}
+                      currentCategory={currentCategory}
+                      isFlipping={isFlipping}
+                    />
+                  </>
                 )}
               </div>
 
