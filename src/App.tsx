@@ -1,115 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import type { Category, Card } from './types/types';
-import { personalInfo, projects, aboutCards, contactCards, skillsCards } from './data';
+import { personalInfo } from './data';
 import NavigationButton from './components/NavigationButton';
 import CardModal from './components/CardModal';
 import BinderPage from './components/BinderPage';
+import { useNavigation } from './hooks/useNavigation';
+import { useModal } from './hooks/useModal';
+import { usePageState } from './hooks/usePageState';
+import { useCardData } from './hooks/useCardData';
 
 const App: React.FC = () => {
-  const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
-  const [isFlipping, setIsFlipping] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<Card | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
-  
-  const navigationItems = [
-    { category: 'about me' as const, label: 'About Me' },
-    { category: 'projects' as const, label: 'Projects' },
-    { category: 'skills' as const, label: 'Skills' },
-    { category: 'contact' as const, label: 'Contact' },
-  ];
+  const { 
+    currentCategory, 
+    isFlipping, 
+    navigationItems, 
+    handleCategoryClick, 
+    handleBackToCover 
+  } = useNavigation();
 
-  const getCurrentCards = (): Card[] => {
-    switch (currentCategory) {
-      case 'about me':
-        return aboutCards;
-      case 'projects':
-        return projects.map(project => ({
-          id: project.id,
-          title: project.title,
-          content: project.description,
-          technologies: project.technologies,
-          githubUrl: project.githubUrl,
-          liveUrl: project.liveUrl,
-          icon: "🚀"
-        }));
-      case 'skills':
-        return skillsCards;
-      case 'contact':
-        return contactCards;
-      default:
-        return [];
-    }
-  };
+  const { 
+    selectedCard, 
+    isModalOpen, 
+    handleCardClick, 
+    handleCloseModal 
+  } = useModal();
 
-  const getCurrentPageCards = (): Card[] => {
-    const allCards = getCurrentCards();
-    const cardsPerPage = 6; // 3x2 grid
-    const startIndex = currentPage * cardsPerPage;
-    return allCards.slice(startIndex, startIndex + cardsPerPage);
-  };
+  const { 
+    currentPage, 
+    resetPage, 
+    getCurrentPageCards, 
+    getTotalPages, 
+    handleNextPage, 
+    handlePrevPage 
+  } = usePageState();
 
-  const getTotalPages = (): number => {
-    const totalCards = getCurrentCards().length;
-    return Math.ceil(totalCards / 6);
-  };
+  const { getCurrentCards } = useCardData(currentCategory, resetPage);
 
-  const handleCategoryClick = (category: Category) => {
-    if (category === currentCategory) return;
-
-    setCurrentPage(0);
-    setIsFlipping(true);
-
-    setTimeout(() => {
-      setCurrentCategory(category);
-      setIsFlipping(false);
-    }, 600);
-  };
-
-  const handleBackToCover = () => {
-    setCurrentPage(0);
-    setIsFlipping(true);
-    setTimeout(() => {
-      setCurrentCategory(null);
-      setIsFlipping(false);
-    }, 600);
-  };
-
-  const handleNextPage = () => {
-    const totalPages = getTotalPages();
-    if (currentPage < totalPages - 1) {
-      setIsFlipping(true);
-      setTimeout(() => {
-        setCurrentPage(currentPage + 1);
-        setIsFlipping(false);
-      }, 600);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 0) {
-      setIsFlipping(true);
-      setTimeout(() => {
-        setCurrentPage(currentPage - 1);
-        setIsFlipping(false);
-      }, 600);
-    }
-  };
-
-  const handleCardClick = (card: Card) => {
-    setSelectedCard(card);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
-  };
+  // Get cards for current page
+  const allCards = getCurrentCards;
+  const currentPageCards = getCurrentPageCards(allCards);
+  const totalPages = getTotalPages(allCards.length);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 font-sans flex flex-col items-center justify-center p-8">
-
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 p-8">
       {/* Navigation - Always visible above binder */}
       <div className="flex gap-4 flex-wrap justify-center mb-8">
         {navigationItems.map(item => (
@@ -143,8 +76,6 @@ const App: React.FC = () => {
               <div key={ring} className="w-6 h-12 bg-gray-600 rounded-full shadow-inner border-2 border-gray-500"></div>
             ))}
           </div>
-
-
 
           {/* Page Container */}
           <div className="ml-8 relative" style={{ width: '800px', height: '600px' }}>
@@ -181,7 +112,7 @@ const App: React.FC = () => {
                 ) : (
                   /* Category Content Page */
                   <BinderPage
-                    cards={getCurrentPageCards()}
+                    cards={currentPageCards}
                     onCardClick={handleCardClick}
                     isFlipping={isFlipping}
                   />
@@ -202,7 +133,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Page Navigation */}
-          {currentCategory && getTotalPages() > 1 && (
+          {currentCategory && totalPages > 1 && (
             <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex items-center gap-3 bg-amber-100 bg-opacity-95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg z-10 border border-amber-300">
               <button
                 onClick={handlePrevPage}
@@ -213,12 +144,12 @@ const App: React.FC = () => {
               </button>
               
               <span className="text-amber-800 font-bold text-xs">
-                Page {currentPage + 1} of {getTotalPages()}
+                Page {currentPage + 1} of {totalPages}
               </span>
               
               <button
                 onClick={handleNextPage}
-                disabled={currentPage >= getTotalPages() - 1 || isFlipping}
+                disabled={currentPage >= totalPages - 1 || isFlipping}
                 className="px-3 py-1 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-full font-semibold transition-colors text-xs"
               >
                 Next →
