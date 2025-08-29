@@ -15,7 +15,7 @@ export interface Card {
   proficiency?: number;
   yearsOfExperience?: number;
   description?: string;
-  status?: 'mastered' | 'proficient' |'learning' | 'exploring';
+  status?: 'mastered' | 'proficient' | 'learning' | 'exploring';
   icon?: string;
   title: string;
   content: string;
@@ -32,4 +32,6 @@ export interface PersonalInfo {
   location: string;
   linkedin: string;
   github: string;
+  profilePicture: string;
+  description: string;
 }

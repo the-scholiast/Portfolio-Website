@@ -84,13 +84,27 @@ const App: React.FC = () => {
                 {currentCategory === null ? (
                   /* Cover Page */
                   <div className="flex flex-col justify-center items-center h-full text-center p-4">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-800 mb-4">{personalInfo.name}</h1>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-600 mb-6 md:mb-8">{personalInfo.title}</h2>
-                    <div className="space-y-2 md:space-y-3 text-gray-700 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 md:mb-8">
-                      <p>{personalInfo.email}</p>
-                      <p>{personalInfo.phone}</p>
-                      <p>{personalInfo.location}</p>
+                    {/* Profile Picture */}
+                    <div className="mb-6 md:mb-8">
+                      <img
+                        src={personalInfo.profilePicture}
+                        alt={`${personalInfo.name} profile`}
+                        className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-4 border-gray-600 shadow-lg object-cover"
+                      />
                     </div>
+
+                    {/* Name and Title */}
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-600 mb-6 md:mb-8">{personalInfo.title}</h2>
+
+                    {/* Personal Description */}
+                    <div className="max-w-2xl mb-6 md:mb-8">
+                      <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed mb-4">
+                        {personalInfo.description}
+                      </p>
+                    </div>
+
+                    {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
                       <a href={`mailto:${personalInfo.email}`}
                         className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 no-underline text-base md:text-lg lg:text-xl">
@@ -100,6 +114,7 @@ const App: React.FC = () => {
                         Download Resume
                       </button>
                     </div>
+
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
                 ) : (
