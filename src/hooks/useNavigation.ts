@@ -23,7 +23,7 @@ export const useNavigation = () => {
     setTimeout(() => {
       setCurrentCategory(category);
       setIsFlipping(false);
-    }, 300);
+    }, 500);
   };
 
   const handleBackToCover = () => {
@@ -31,7 +31,7 @@ export const useNavigation = () => {
     setTimeout(() => {
       setCurrentCategory(null);
       setIsFlipping(false);
-    }, 300);
+    }, 500);
   };
 
   return {
