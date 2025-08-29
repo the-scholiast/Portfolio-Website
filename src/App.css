@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Wooden Desk Background */
+.wooden-desk-bg {
+  background: 
+    /* Wood grain lines */
+    linear-gradient(90deg, transparent 0%, rgba(101, 67, 33, 0.1) 50%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, rgba(139, 69, 19, 0.05) 30%, rgba(160, 82, 45, 0.1) 70%, transparent 100%),
+    /* Base wood color with subtle variations */
+    linear-gradient(45deg, #8B4513 0%, #A0522D 25%, #CD853F 50%, #DEB887 75%, #F5DEB3 100%),
+    /* Deep wood base */
+    #8B4513;
+  
+  background-size: 
+    200px 100px,
+    100px 300px,
+    400px 400px,
+    100% 100%;
+    
+  background-position:
+    0 0,
+    0 0, 
+    0 0,
+    0 0;
+    
+  /* Subtle wood texture pattern */
+  background-image: 
+    /* Horizontal wood grain */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(101, 67, 33, 0.03) 2px,
+      rgba(101, 67, 33, 0.03) 4px
+    ),
+    /* Vertical wood grain - subtle */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      rgba(139, 69, 19, 0.02) 8px,
+      rgba(139, 69, 19, 0.02) 16px
+    ),
+    /* Base gradient for depth */
+    linear-gradient(135deg, #A0522D 0%, #8B4513 50%, #654321 100%);
+}
+
+/* Binder responsive sizing */
+.binder-page {
+  width: min(1200px, 85vw);
+  height: min(900px, 80vh);
+  max-width: 95vw;
+}
+
+/* Enhanced binder shadow to sit on desk */
+.binder-shadow {
+  box-shadow: 
+    /* Main shadow on desk - deeper for black binder */
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    /* Closer shadow for depth */
+    0 15px 30px rgba(0, 0, 0, 0.3),
+    /* Ambient shadow */
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    /* Inner glow for professional look */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 /* Page flipping animation */
 @keyframes pageFlip {
   0% {
@@ -92,4 +157,38 @@
 /* Enhanced shadow effects */
 .shadow-3xl {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .binder-page {
+    width: 95vw;
+    height: 75vh;
+  }
+  
+  .wooden-desk-bg {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .binder-page {
+    width: 98vw;
+    height: 70vh;
+  }
+}
+
+/* Additional responsive scaling for larger screens */
+@media (min-width: 1200px) {
+  .binder-page {
+    width: min(1400px, 80vw);
+    height: min(1000px, 75vh);
+  }
+}
+
+@media (min-width: 1600px) {
+  .binder-page {
+    width: min(1600px, 75vw);
+    height: min(1100px, 70vh);
+  }
 }
