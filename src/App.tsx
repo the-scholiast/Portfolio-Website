@@ -8,21 +8,21 @@ import { usePageState } from './hooks/usePageState';
 import { useCardData } from './hooks/useCardData';
 
 const App: React.FC = () => {
-  const { 
-    currentCategory, 
-    isFlipping, 
-    navigationItems, 
-    handleCategoryClick, 
-    handleBackToCover 
+  const {
+    currentCategory,
+    isFlipping,
+    navigationItems,
+    handleCategoryClick,
+    handleBackToCover
   } = useNavigation();
 
-  const { 
-    currentPage, 
-    resetPage, 
-    getCurrentPageCards, 
-    getTotalPages, 
-    handleNextPage, 
-    handlePrevPage 
+  const {
+    currentPage,
+    resetPage,
+    getCurrentPageCards,
+    getTotalPages,
+    handleNextPage,
+    handlePrevPage
   } = usePageState();
 
   const { getCurrentCards } = useCardData(currentCategory, resetPage);
@@ -45,7 +45,7 @@ const App: React.FC = () => {
             onClick={handleCategoryClick}
           />
         ))}
-        
+
         {currentCategory && (
           <button
             onClick={handleBackToCover}
@@ -61,9 +61,12 @@ const App: React.FC = () => {
         {/* Binder */}
         <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-2xl relative border-4 border-gray-700 binder-shadow">
           {/* Binder rings */}
-          <div className="absolute left-3 md:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 space-y-6 md:space-y-8 lg:space-y-10">
-            {[1, 2, 3, 4, 5, 6, 7].map((ring) => (
-              <div key={ring} className="w-5 h-10 md:w-6 md:h-12 lg:w-7 lg:h-14 bg-gray-700 rounded-full shadow-inner border-2 border-gray-300"></div>
+          <div className="absolute left-2 md:left-3 lg:left-5 top-0 bottom-0 flex flex-col justify-between py-8 md:py-12 lg:py-16">
+            {[1, 2, 3].map((ring) => (
+              <div
+                key={ring}
+                className="w-8 h-16 md:w-10 md:h-20 lg:w-12 lg:h-24 bg-gray-700 rounded-full shadow-inner border-2 border-gray-300 ring-shadow"
+              ></div>
             ))}
           </div>
 
@@ -132,11 +135,11 @@ const App: React.FC = () => {
               >
                 ← Prev
               </button>
-              
+
               <span className="text-gray-200 font-bold text-xs">
                 Page {currentPage + 1} of {totalPages}
               </span>
-              
+
               <button
                 onClick={handleNextPage}
                 disabled={currentPage >= totalPages - 1 || isFlipping}
