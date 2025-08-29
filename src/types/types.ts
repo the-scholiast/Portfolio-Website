@@ -25,6 +25,7 @@ export interface Card {
 }
 
 export interface PersonalInfo {
+  header: string;
   name: string;
   title: string;
   email: string;
@@ -34,4 +35,5 @@ export interface PersonalInfo {
   github: string;
   profilePicture: string;
   description: string;
+  pokerChip: string;
 }

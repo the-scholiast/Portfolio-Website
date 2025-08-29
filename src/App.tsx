@@ -84,13 +84,18 @@ const App: React.FC = () => {
                 {currentCategory === null ? (
                   /* Cover Page */
                   <div className="flex flex-col justify-center items-center h-full text-center p-4">
+                    {/* Header */}
+                    <div className="text-white font-black text-4xl md:text-6xl lg:text-7xl xl:text-7xl tracking-wider drop-shadow-lg relative z-10"
+                      style={{ fontFamily: 'Impact, "Arial Black", sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                      {personalInfo.header}
+                    </div>
                     <div className="flex flex-row justify-center items-center text-center p-6 gap-6 md:gap-8">
                       {/* Profile Picture */}
                       <div>
                         <img
                           src={personalInfo.profilePicture}
                           alt={`${personalInfo.name} profile`}
-                          className="w-34 h-34 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full border-4 border-gray-600 shadow-lg object-cover"
+                          className="w-28 h-36 md:w-36 md:h-48 lg:w-44 lg:h-56 rounded-xl border-4 border-gray-600 shadow-lg object-cover"
                         />
                       </div>
                       {/* Name and Title Cards */}
@@ -99,12 +104,6 @@ const App: React.FC = () => {
                         <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-4 rounded-xl border-4 border-yellow-700 shadow-2xl relative overflow-hidden">
                           {/* Card shine effect */}
                           <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
-
-                          {/* Corner decorative elements */}
-                          <div className="absolute top-1 left-1 w-3 h-3 border-l-2 border-t-2 border-yellow-200 opacity-60"></div>
-                          <div className="absolute top-1 right-1 w-3 h-3 border-r-2 border-t-2 border-yellow-200 opacity-60"></div>
-                          <div className="absolute bottom-1 left-1 w-3 h-3 border-l-2 border-b-2 border-yellow-200 opacity-60"></div>
-                          <div className="absolute bottom-1 right-1 w-3 h-3 border-r-2 border-b-2 border-yellow-200 opacity-60"></div>
 
                           <h1 className="text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider drop-shadow-lg relative z-10"
                             style={{ fontFamily: 'Impact, "Arial Black", sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
@@ -137,7 +136,7 @@ const App: React.FC = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    {/* <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
                       <a href={`mailto:${personalInfo.email}`}
                         className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 no-underline text-base md:text-lg lg:text-xl">
                         Email Me
@@ -145,12 +144,21 @@ const App: React.FC = () => {
                       <button className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl">
                         Download Resume
                       </button>
-                    </div>
+                    </div> */}
+
+                    {/* Poker chip */}
+                      <div>
+                        <img
+                          src={personalInfo.pokerChip}
+                          alt={`Poker chip rotating`}
+                          className="w-28 h-34 md:w-36 md:h-42 lg:w-44 lg:h-50"
+                        />
+                      </div>
 
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
                 ) : (
-                  /* Category Content Page - Now with detailed cards */
+                  /* Category Content Page */
                   <BinderPage
                     cards={currentPageCards}
                     currentCategory={currentCategory}
