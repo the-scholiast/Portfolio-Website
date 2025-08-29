@@ -84,22 +84,25 @@ const App: React.FC = () => {
                 {currentCategory === null ? (
                   /* Cover Page */
                   <div className="flex flex-col justify-center items-center h-full text-center p-4">
-                    {/* Profile Picture */}
-                    <div className="mb-6 md:mb-8">
-                      <img
-                        src={personalInfo.profilePicture}
-                        alt={`${personalInfo.name} profile`}
-                        className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-4 border-gray-600 shadow-lg object-cover"
-                      />
+                    <div className="flex flex-row justify-center items-center text-center p-6 gap-6 md:gap-8">
+                      {/* Profile Picture */}
+                      <div>
+                        <img
+                          src={personalInfo.profilePicture}
+                          alt={`${personalInfo.name} profile`}
+                          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-4 border-gray-600 shadow-lg object-cover"
+                        />
+                      </div>
+                      {/* Name and Title */}
+                      <div>
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
+                        <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-600 mb-6 md:mb-8">{personalInfo.title}</h2>
+                      </div>
                     </div>
-
-                    {/* Name and Title */}
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
-                    <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-600 mb-6 md:mb-8">{personalInfo.title}</h2>
 
                     {/* Personal Description */}
                     <div className="max-w-2xl mb-6 md:mb-8">
-                      <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed mb-4">
+                      <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed">
                         {personalInfo.description}
                       </p>
                     </div>
