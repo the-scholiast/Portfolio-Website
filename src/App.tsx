@@ -90,13 +90,42 @@ const App: React.FC = () => {
                         <img
                           src={personalInfo.profilePicture}
                           alt={`${personalInfo.name} profile`}
-                          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full border-4 border-gray-600 shadow-lg object-cover"
+                          className="w-34 h-34 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full border-4 border-gray-600 shadow-lg object-cover"
                         />
                       </div>
-                      {/* Name and Title */}
-                      <div>
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
-                        <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-600 mb-6 md:mb-8">{personalInfo.title}</h2>
+                      {/* Name and Title Cards */}
+                      <div className="flex flex-col items-center gap-4 mb-6">
+                        {/* Name Card - Yellow Gradient */}
+                        <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-4 rounded-xl border-4 border-yellow-700 shadow-2xl relative overflow-hidden">
+                          {/* Card shine effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
+
+                          {/* Corner decorative elements */}
+                          <div className="absolute top-1 left-1 w-3 h-3 border-l-2 border-t-2 border-yellow-200 opacity-60"></div>
+                          <div className="absolute top-1 right-1 w-3 h-3 border-r-2 border-t-2 border-yellow-200 opacity-60"></div>
+                          <div className="absolute bottom-1 left-1 w-3 h-3 border-l-2 border-b-2 border-yellow-200 opacity-60"></div>
+                          <div className="absolute bottom-1 right-1 w-3 h-3 border-r-2 border-b-2 border-yellow-200 opacity-60"></div>
+
+                          <h1 className="text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider drop-shadow-lg relative z-10"
+                            style={{ fontFamily: 'Impact, "Arial Black", sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                            {personalInfo.name}
+                          </h1>
+                        </div>
+
+                        {/* Title Card - Blue Gradient */}
+                        <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-3 rounded-lg border-3 border-blue-700 shadow-xl relative overflow-hidden">
+                          {/* Card shine effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none"></div>
+
+                          {/* Side accent lines */}
+                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-300 opacity-60"></div>
+                          <div className="absolute right-0 top-0 bottom-0 w-1 bg-blue-300 opacity-60"></div>
+
+                          <h2 className="text-white font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-wide drop-shadow-md relative z-10"
+                            style={{ fontFamily: 'Trebuchet MS, Arial, sans-serif', textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
+                            {personalInfo.title}
+                          </h2>
+                        </div>
                       </div>
                     </div>
 
