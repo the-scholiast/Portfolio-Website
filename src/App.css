@@ -204,3 +204,17 @@
     height: min(1100px, 70vh);
   }
 }
+
+/* Poker chip rotation */
+@keyframes spinHorizontal {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-spinHorizontal {
+  animation: spinHorizontal 5s linear infinite;
+}
