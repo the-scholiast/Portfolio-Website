@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import type { Category, Card } from '../types/types';
-import { projects, aboutCards, contactCards, skillsCards } from '../data';
+import { projectsCards, aboutCards, contactCards, skillsCards } from '../data';
 
 /**
  * Custom hook for managing card data based on current category
@@ -13,15 +13,7 @@ export const useCardData = (currentCategory: Category | null, resetPage: () => v
       case 'about me':
         return aboutCards;
       case 'projects':
-        return projects.map(project => ({
-          id: project.id,
-          title: project.title,
-          content: project.description,
-          technologies: project.technologies,
-          githubUrl: project.githubUrl,
-          liveUrl: project.liveUrl,
-          icon: "🚀"
-        }));
+        return projectsCards;
       case 'skills':
         return skillsCards;
       case 'contact':
