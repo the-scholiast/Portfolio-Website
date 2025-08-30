@@ -1,35 +1,24 @@
-import { Project } from '../types/types';
+import { Card } from '../types/types';
 
-export const projects: Project[] = [
+export const projectsCards: Card[] = [
   {
     id: "1",
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform with cart functionality, user authentication, and payment processing.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com/yourname/ecommerce",
-    liveUrl: "https://your-ecommerce.com"
+    title: "Scholiast",
+    type: "Team Academic",
+    content: "Scholiast is an AI-powered web application that transforms your study materials into interactive quizzes, flashcards, and concise summaries, enhancing your learning experience and tracking your progress.",
+    technologies: ["React", "Next.js", "Express.js", "MongoDB", "Tailwind"],
+    githubUrl: "https://github.com/the-scholiast/Scholiast",
+    liveUrl: "https://scholiast.webios.link/",
+    icon: "🚀",
   },
   {
     id: "2",
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team features.",
-    technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
-    githubUrl: "https://github.com/yourname/taskapp",
-    liveUrl: "https://your-taskapp.com"
+    title: "NoPlanNoFuture",
+    type: "Duo Personal",
+    content: "A full-stack application that combines task management, calendar planning, and workout tracking in one unified platform.",
+    technologies: ["React", "TypeScript", "Next.js", "Express.js", "Supabase", "PostSQL", "Tailwind"],
+    githubUrl: "https://github.com/the-scholiast/NoPlanNoFuture",
+    liveUrl: "https://no-plan-no-future.vercel.app/",
+    icon: "🚀",
   },
-  {
-    id: "3",
-    title: "Weather Dashboard",
-    description: "A responsive weather dashboard with location-based forecasts and historical data visualization.",
-    technologies: ["React", "D3.js", "OpenWeather API", "Tailwind"],
-    githubUrl: "https://github.com/yourname/weather",
-    liveUrl: "https://your-weather.com"
-  },
-  {
-    id: "4",
-    title: "Portfolio Website",
-    description: "A creative portfolio website with card-based navigation and smooth animations.",
-    technologies: ["React", "TypeScript", "CSS3", "Framer Motion"],
-    githubUrl: "https://github.com/yourname/portfolio"
-  }
 ];
