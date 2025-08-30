@@ -10,9 +10,9 @@ export const useNavigation = () => {
   const [isFlipping, setIsFlipping] = useState(false);
 
   const navigationItems = [
-    { category: 'about me' as const, label: 'About Me' },
     { category: 'projects' as const, label: 'Projects' },
     { category: 'skills' as const, label: 'Skills' },
+    { category: 'about me' as const, label: 'About Me' },
     { category: 'contact' as const, label: 'Contact' },
   ];
 
