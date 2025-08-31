@@ -6,7 +6,7 @@ import type { Category } from '../types/types';
  * Handles the logic for switching between different portfolio categories
  */
 export const useNavigation = () => {
-  const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<Category | null>('home');
   const [isFlipping, setIsFlipping] = useState(false);
 
   const navigationItems = [

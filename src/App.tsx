@@ -149,11 +149,7 @@ const App: React.FC = () => {
                           Download Resume
                         </button>
                       </div>
-
                     </div>
-
-
-
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
                 ) : (
@@ -177,7 +173,6 @@ const App: React.FC = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
