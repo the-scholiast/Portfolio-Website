@@ -2,84 +2,113 @@ import { Card } from '../types/types';
 
 export const skillsCards: Card[] = [
   {
-    id: "skill-1",
-    title: "React",
-    content: "Advanced proficiency in React development with hooks, context, and modern patterns. Built numerous production applications.",
-    icon: "⚛️",
-    proficiency: 5,
-    yearsOfExperience: 3,
-    status: "mastered"
-  },
-  {
-    id: "skill-2", 
-    title: "TypeScript",
-    content: "Strong typing skills with advanced TypeScript features. Experience with complex type definitions and generic programming.",
-    icon: "🔷",
-    proficiency: 4,
-    yearsOfExperience: 2.5,
-    status: "mastered"
-  },
-  {
-    id: "skill-3",
-    title: "Node.js",
-    content: "Backend development with Node.js, Express, and various frameworks. API design and server-side application architecture.",
-    icon: "🟢",
-    proficiency: 4,
-    yearsOfExperience: 3,
-    status: "mastered"
-  },
-  {
-    id: "skill-4",
+    id: "Python",
     title: "Python",
-    content: "Versatile Python programming for web development, automation, and data processing. Django and Flask experience.",
+    type: "Language",
+    content: "First main language used. Focused mostly on procedural programming paradigm during school.",
     icon: "🐍",
-    proficiency: 4,
-    yearsOfExperience: 4,
-    status: "mastered"
+    proficiency: 2.5,
+    yearsOfExperience: "1.5 years",
+    status: "basic"
   },
   {
-    id: "skill-5",
+    id: "React",
+    title: "React",
+    type: "JavaScript Frontend Library",
+    content: "Preferred library for developing frontend web projects.",
+    icon: "⚛️",
+    proficiency: 2,
+    yearsOfExperience: "< 1 year",
+    status: "improving"
+  },
+  {
+    id: "Java",
+    title: "Java",
+    type: "Language",
+    content: "Self-learned. Also, will do a school course and be finished by end of 2025.",
+    icon: "☕",
+    proficiency: 1.5,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "TypeScript",
+    title: "TypeScript",
+    type: "Language",
+    content: "Love the early error detection TypeScript provides over JavaScript! Definitely preferred and will continue to learn and improve.",
+    icon: "🔷",
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "Node.js",
+    title: "Node.js",
+    type: "Backend",
+    content: "Learned through school. Preferred backend runtime environment along with Express.js.",
+    icon: "🟢",
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "Next.js",
+    title: "Next.js",
+    type: "Backend",
+    content: "Self-learned. Preferred React framework for building full-stack web applications with server-side rendering.",
+    icon: "▲",
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "Express.js",
+    title: "Express.js",
+    type: "Backend Framework",
+    content: "Learned through school. Preferred web framework for building APIs and web applications with Node.js.",
+    icon: "EX",
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "MongoDB",
     title: "MongoDB",
-    content: "NoSQL database design and optimization. Aggregation pipelines, indexing strategies, and schema design.",
+    type: "Database",
+    content: "Learned through school and used for a academic project.",
     icon: "🍃",
-    proficiency: 3,
-    yearsOfExperience: 2,
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
     status: "learning"
   },
   {
-    id: "skill-6",
+    id: "PostgreSQL",
     title: "PostgreSQL",
-    content: "Relational database design, complex queries, and performance optimization. Advanced SQL and database administration.",
+    type: "Database",
+    content: "Self-learned. Used in relation to Supabase. Only used for small scale projects.",
     icon: "🐘",
-    proficiency: 3,
-    yearsOfExperience: 2.5,
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
     status: "learning"
   },
   {
-    id: "skill-7",
-    title: "Docker",
-    content: "Containerization and deployment strategies. Docker Compose, multi-stage builds, and orchestration basics.",
-    icon: "🐳",
-    proficiency: 3,
-    yearsOfExperience: 1.5,
+    id: "Supabase",
+    title: "Supabase",
+    type: "Platform",
+    content: "Self-learned. Preferred backend-as-a-service platform for building applications with PostgreSQL and real-time features.",
+    icon: "🔋",
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
     status: "learning"
   },
   {
-    id: "skill-8",
-    title: "AWS",
-    content: "Cloud infrastructure and services. EC2, S3, Lambda, and basic DevOps practices with AWS ecosystem.",
-    icon: "☁️",
-    proficiency: 2,
-    yearsOfExperience: 1,
-    status: "exploring"
-  },
-  {
-    id: "skill-9",
-    title: "GraphQL",
-    content: "Modern API development with GraphQL. Schema design, resolvers, and integration with various frontend frameworks.",
-    icon: "🔗",
-    proficiency: 2,
-    yearsOfExperience: 0.5,
-    status: "exploring"
+    id: "Firebase",
+    title: "Firebase",
+    type: "Platform", 
+    content: "Learned through school. Preferred Google backend-as-a-service platform for building applications with NoSQL database and real-time features.",
+    icon: "🔥", 
+    proficiency: 1,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
   }
 ];
