@@ -185,23 +185,22 @@
 
 @media (max-width: 480px) {
   .binder-page {
-    width: 98vw;
-    height: 70vh;
+    width: 70vw;
+    height: 98vh;
   }
 }
 
-/* Additional responsive scaling for larger screens */
 @media (min-width: 1200px) {
   .binder-page {
-    width: min(1400px, 80vw);
-    height: min(1000px, 75vh);
+    width: min(900px, 75vw);
+    height: min(1100px, 75vh);
   }
 }
 
 @media (min-width: 1600px) {
   .binder-page {
-    width: min(1600px, 75vw);
-    height: min(1100px, 70vh);
+    width: min(900px, 75vw);
+    height: min(1100px, 75vh);
   }
 }
 

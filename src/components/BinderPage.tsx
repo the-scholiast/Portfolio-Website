@@ -26,7 +26,6 @@ const BinderPage: React.FC<BinderPageProps> = ({
                 key={index}
                 card={card}
                 currentCategory={currentCategory}
-                index={index}
               />
             );
           })}

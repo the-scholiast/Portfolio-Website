@@ -33,8 +33,8 @@ const App: React.FC = () => {
   const totalPages = getTotalPages(allCards.length);
 
   return (
-    <div className="min-h-screen flex flex-col wooden-desk-bg p-8">
-      <div className="flex gap-3 md:gap-6 lg:gap-6 flex-wrap justify-center items-center mb-6 md:mb-8">
+    <div className="min-h-screen flex flex-col wooden-desk-bg p-3">
+      <div className="flex gap-3 md:gap-6 lg:gap-6 flex-wrap justify-center items-center mb-3 lg:mb-5">
         {/* Poker chip with fixed flex basis */}
         <div className="flex-shrink-0">
           <img

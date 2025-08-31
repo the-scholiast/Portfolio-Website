@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import type { DetailedCardProps } from '../types/types';
 import SkillsDetail from './SkillsDetail';
 import AboutDetail from './aboutDetail';
@@ -6,8 +6,26 @@ import AboutDetail from './aboutDetail';
 const DetailedCard: React.FC<DetailedCardProps> = ({
   card,
   currentCategory,
-  index
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = contentRef.current;
+    if (!element) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      element.scrollTop += e.deltaY;
+    };
+
+    element.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      element.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
+
   // Render card back if no card
   if (!card) {
     return (
@@ -87,7 +105,10 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
 
             {/* Description/Content - FLEXIBLE AND SCROLLABLE */}
             {card.content && (
-              <div className="flex-1 overflow-y-auto bg-white border border-gray-200 rounded p-2 mb-2 min-h-0">
+              <div
+                ref={contentRef}
+                className="flex-1 overflow-y-auto bg-white border border-gray-200 rounded p-2 mb-2 min-h-0"
+              >
                 <p className="text-gray-700 text-xs leading-relaxed">
                   {card.content}
                 </p>
