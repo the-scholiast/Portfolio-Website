@@ -14,7 +14,7 @@ export const skillsCards: Card[] = [
   {
     id: "React",
     title: "React",
-    type: "JavaScript Frontend Library",
+    type: "Frontend",
     content: "Preferred library for developing frontend web projects.",
     icon: "⚛️",
     proficiency: 2,
@@ -27,6 +27,26 @@ export const skillsCards: Card[] = [
     type: "Language",
     content: "Self-learned. Also, will do a school course and be finished by end of 2025.",
     icon: "☕",
+    proficiency: 1.5,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "JavaScript",
+    title: "JavaScript",
+    type: "Language",
+    content: "The foundation of web development! Learning JavaScript fundamentals to build interactive websites and understanding how it works.",
+    icon: "🟨",
+    proficiency: 1.5,
+    yearsOfExperience: "< 1 year",
+    status: "learning"
+  },
+  {
+    id: "Tailwind",
+    title: "Tailwind CSS",
+    type: "Frontend",
+    content: "Preferred utility-first CSS framework that I'm using to style my projects. Learning how to build responsive designs quickly with pre-built utility classes instead of writing custom CSS.",
+    icon: "🌊",
     proficiency: 1.5,
     yearsOfExperience: "< 1 year",
     status: "learning"
@@ -64,7 +84,7 @@ export const skillsCards: Card[] = [
   {
     id: "Express.js",
     title: "Express.js",
-    type: "Backend Framework",
+    type: "Backend",
     content: "Learned through school. Preferred web framework for building APIs and web applications with Node.js.",
     icon: "EX",
     proficiency: 1,
@@ -104,9 +124,9 @@ export const skillsCards: Card[] = [
   {
     id: "Firebase",
     title: "Firebase",
-    type: "Platform", 
-    content: "Learned through school. Preferred Google backend-as-a-service platform for building applications with NoSQL database and real-time features.",
-    icon: "🔥", 
+    type: "Platform",
+    content: "Learned through school. Used with Firestore as the database for my first academic project.",
+    icon: "🔥",
     proficiency: 1,
     yearsOfExperience: "< 1 year",
     status: "learning"
