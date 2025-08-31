@@ -114,7 +114,7 @@ const App: React.FC = () => {
                       style={{
                         fontFamily: 'Impact, "Arial Black", sans-serif',
                         textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                        fontSize: 'clamp(2rem, 6vw, 5rem)' 
+                        fontSize: 'clamp(2rem, 5vw, 4rem)' 
                       }}>
                       {personalInfo.header}
                     </div>
@@ -142,7 +142,7 @@ const App: React.FC = () => {
                             style={{
                               fontFamily: 'Impact, "Arial Black", sans-serif',
                               textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                              fontSize: 'clamp(1.5rem, 4vw, 3rem)' 
+                              fontSize: 'clamp(1.5rem, 3.5vw, 3rem)' 
                             }}>
                             {personalInfo.name}
                           </h1>
@@ -161,7 +161,7 @@ const App: React.FC = () => {
                             style={{
                               fontFamily: 'Trebuchet MS, Arial, sans-serif',
                               textShadow: '1px 1px 3px rgba(0,0,0,0.4)',
-                              fontSize: 'clamp(1rem, 3vw, 3rem)' 
+                              fontSize: 'clamp(1rem, 2.5vw, 2.5rem)' 
                             }}>
                             {personalInfo.title}
                           </h2>
