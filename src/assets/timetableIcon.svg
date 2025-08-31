@@ -1,0 +1,31 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="10" y="15" width="80" height="70" rx="8" ry="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- Header bar (like days of week) -->
+  <rect x="10" y="15" width="80" height="15" rx="8" ry="8" fill="#4dabf7"/>
+  <rect x="10" y="22" width="80" height="8" fill="#4dabf7"/>
+  
+  <!-- Vertical grid lines (separating columns/days) -->
+  <line x1="30" y1="30" x2="30" y2="85" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="50" y1="30" x2="50" y2="85" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="70" y1="30" x2="70" y2="85" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Horizontal grid lines (separating time rows) -->
+  <line x1="10" y1="40" x2="90" y2="40" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="10" y1="50" x2="90" y2="50" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="10" y1="60" x2="90" y2="60" stroke="#dee2e6" stroke-width="1"/>
+  <line x1="10" y1="70" x2="90" y2="70" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Filled time slots (representing scheduled classes/events) -->
+  <rect x="12" y="32" width="16" height="6" rx="1" fill="#ff6b6b"/>
+  <rect x="32" y="42" width="16" height="6" rx="1" fill="#51cf66"/>
+  <rect x="52" y="32" width="16" height="16" rx="1" fill="#ffd43b"/>
+  <rect x="72" y="52" width="16" height="6" rx="1" fill="#845ef7"/>
+  <rect x="12" y="62" width="16" height="6" rx="1" fill="#ff9f43"/>
+  
+  <!-- Small clock icon in corner -->
+  <circle cx="82" cy="25" r="6" fill="white" stroke="#495057" stroke-width="1"/>
+  <line x1="82" y1="21" x2="82" y2="25" stroke="#495057" stroke-width="1"/>
+  <line x1="82" y1="25" x2="85" y2="25" stroke="#495057" stroke-width="1"/>
+</svg>
