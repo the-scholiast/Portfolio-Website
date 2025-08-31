@@ -70,10 +70,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
             {card.type && (
               <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-2 py-1 rounded mb-2 text-center flex-shrink-0">
                 <span className="font-bold text-xs">
-                  {currentCategory === 'projects' ? `${card.type}` :
-                    currentCategory === 'about me' ? `${card.type}` :
-                      currentCategory === 'skills' ? `${card.type}` :
-                        'CONTACT'}
+                  {card.type}
                 </span>
               </div>
             )}

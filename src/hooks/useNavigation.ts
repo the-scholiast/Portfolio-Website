@@ -13,7 +13,6 @@ export const useNavigation = () => {
     { category: 'projects' as const, label: 'Projects' },
     { category: 'skills' as const, label: 'Skills' },
     { category: 'about me' as const, label: 'About Me' },
-    { category: 'contact' as const, label: 'Contact' },
   ];
 
   const handleCategoryClick = (category: Category) => {

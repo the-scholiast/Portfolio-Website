@@ -1,4 +1,4 @@
-export type Category = 'about me' | 'projects' | 'contact' | 'skills';
+export type Category = 'about me' | 'projects' | 'skills';
 
 export interface Card {
   id: string;

@@ -34,26 +34,34 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col wooden-desk-bg p-8">
-      {/* Navigation */}
-      <div className="flex gap-3 md:gap-4 lg:gap-6 flex-wrap justify-center mb-6 md:mb-8">
-        {navigationItems.map(item => (
-          <NavigationButton
-            key={item.category}
-            category={item.category}
-            label={item.label}
-            isActive={currentCategory === item.category}
-            onClick={handleCategoryClick}
+      <div className="flex gap-3 md:gap-6 lg:gap-6 flex-wrap justify-center items-center mb-6 md:mb-8">
+        {/* Poker chip with fixed flex basis */}
+        <div className="flex-shrink-0">
+          <img
+            src={personalInfo.pokerChip}
+            alt={`Poker chip rotating`}
+            className="w-28 h-34 md:w-24 md:h-24 lg:w-44 lg:h-50 animate-spinHorizontal"
           />
-        ))}
+        </div>
 
-        {currentCategory && (
-          <button
-            onClick={handleBackToCover}
-            className="px-5 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-gray-600 hover:bg-gray-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-sm md:text-base lg:text-lg"
-          >
-            📖 Cover
-          </button>
-        )}
+        {/* Navigation buttons */}
+        <div className="flex gap-3 md:gap-4 lg:gap-6 flex-wrap justify-center">
+          {navigationItems.map(item => (
+            <NavigationButton
+              key={item.category}
+              category={item.category}
+              label={item.label}
+              isActive={currentCategory === item.category}
+              onClick={handleCategoryClick}
+            />
+          ))}
+
+          {currentCategory && (
+            <button onClick={handleBackToCover}>
+              📖 Cover
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Main Content Container */}
@@ -136,26 +144,21 @@ const App: React.FC = () => {
                         {personalInfo.description}
                       </p>
                     </div>
+                    <div className='flex justify-between'>
+                      {/* Action Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+                        <a href={`mailto:${personalInfo.email}`}
+                          className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 no-underline text-base md:text-lg lg:text-xl">
+                          Email Me
+                        </a>
+                        <button className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl">
+                          Download Resume
+                        </button>
+                      </div>
 
-                    {/* Action Buttons */}
-                    {/* <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                      <a href={`mailto:${personalInfo.email}`}
-                        className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 no-underline text-base md:text-lg lg:text-xl">
-                        Email Me
-                      </a>
-                      <button className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl">
-                        Download Resume
-                      </button>
-                    </div> */}
-
-                    {/* Poker chip */}
-                    <div>
-                      <img
-                        src={personalInfo.pokerChip}
-                        alt={`Poker chip rotating`}
-                        className="w-28 h-34 md:w-36 md:h-42 lg:w-44 lg:h-50 animate-spinHorizontal"
-                      />
                     </div>
+
+
 
                     <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
                   </div>
