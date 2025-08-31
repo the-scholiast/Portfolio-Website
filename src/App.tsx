@@ -42,6 +42,15 @@ const App: React.FC = () => {
     }
   };
 
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/assets/resume.pdf';
+    link.download = 'Woojin_Song_resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen flex flex-col wooden-desk-bg p-3">
       <div className="flex gap-3 md:gap-6 lg:gap-6 flex-wrap justify-center items-center mb-3 lg:mb-5">
@@ -157,7 +166,10 @@ const App: React.FC = () => {
                         >
                           {emailCopied ? '✓ Copied!' : 'Copy Email'}
                         </button>
-                        <button className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl">
+                        <button
+                          onClick={handleResumeDownload}
+                          className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl"
+                        >
                           Download Resume
                         </button>
                       </div>
