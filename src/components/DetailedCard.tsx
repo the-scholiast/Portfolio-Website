@@ -93,6 +93,16 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
               </div>
             )}
 
+            {/* Projects-specific stats */}
+            {currentCategory === 'projects' && (
+              <div className="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-1 rounded mb-2 flex-shrink-0">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-bold">STATUS:</span>
+                  <span className="text-xs">{card.yearsOfExperience}</span>
+                </div>
+              </div>
+            )}
+
             {/* Skills-specific stats */}
             {currentCategory === 'skills' && (
               <SkillsDetail card={card} />
@@ -118,7 +128,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
             {/* Technologies */}
             {card.technologies && card.technologies.length > 0 && (
               <div className="mb-2 flex-shrink-0">
-                <div className="text-xs font-bold text-gray-600 mb-1">TECH:</div>
+                <div className="text-xs font-bold text-gray-600 mb-1"></div>
                 <div className="flex flex-wrap gap-1">
                   {card.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="px-1 py-0.5 bg-blue-100 text-blue-800 rounded text-xs font-medium">
