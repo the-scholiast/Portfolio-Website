@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import './App.css';
 import { personalInfo } from './data';
 import NavigationButton from './components/NavigationButton';
@@ -28,6 +28,8 @@ const App: React.FC = () => {
   const allCards = getCurrentCards;
   const currentPageCards = getCurrentPageCards(allCards);
   const totalPages = getTotalPages(allCards.length);
+
+  const cachedProfileImage = useMemo(() => personalInfo.profilePicture, []);
 
   const handleEmailCopy = async () => {
     try {
@@ -116,7 +118,7 @@ const App: React.FC = () => {
                       {/* Profile Picture */}
                       <div>
                         <img
-                          src={personalInfo.profilePicture}
+                          src={cachedProfileImage}
                           alt={`${personalInfo.name} profile`}
                           className="w-28 h-36 md:w-36 md:h-48 lg:w-44 lg:h-56 rounded-xl border-4 border-gray-600 shadow-lg object-cover"
                         />
