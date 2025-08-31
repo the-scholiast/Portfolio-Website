@@ -1,11 +1,6 @@
 import React from 'react';
-import type { Card, Category } from '../types/types';
-
-interface DetailedCardProps {
-  card: Card | null;
-  currentCategory: Category | null;
-  index: number;
-}
+import type { DetailedCardProps } from '../types/types';
+import SkillsDetail from './SkillsDetail';
 
 const DetailedCard: React.FC<DetailedCardProps> = ({
   card,
@@ -44,12 +39,6 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
                   <div className="text-white text-xs opacity-60">COLLECTION</div>
                 </div>
               </div>
-
-              {/* Corner decorative elements */}
-              <div className="absolute top-1 left-1 w-3 h-3 border-l-2 border-t-2 border-white opacity-30"></div>
-              <div className="absolute top-1 right-1 w-3 h-3 border-r-2 border-t-2 border-white opacity-30"></div>
-              <div className="absolute bottom-1 left-1 w-3 h-3 border-l-2 border-b-2 border-white opacity-30"></div>
-              <div className="absolute bottom-1 right-1 w-3 h-3 border-r-2 border-b-2 border-white opacity-30"></div>
             </div>
           </div>
         </div>
@@ -79,39 +68,26 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
             {/* Card Type/Level Bar */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-2 py-1 rounded mb-2 text-center flex-shrink-0">
               <span className="font-bold text-xs">
-                {currentCategory === 'projects' ? 'PROJECT' :
+                {currentCategory === 'projects' ? `${card.type}` :
                   currentCategory === 'about me' ? 'PROFILE' :
-                    currentCategory === 'skills' ? 'SKILL' :
+                    currentCategory === 'skills' ? `${card.type}` :
                       'CONTACT'}
               </span>
             </div>
 
             {/* Skills-specific stats */}
-            {currentCategory === 'skills' && card.proficiency && (
-              <div className="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-1 rounded mb-2 flex-shrink-0">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold">LEVEL:</span>
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span
-                        key={star}
-                        className={`text-xs ${star <= (card.proficiency || 0) ?
-                          'text-yellow-300' : 'text-gray-400'}`}
-                      >
-                        ⭐
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            {currentCategory === 'skills' && (
+              <SkillsDetail card={card}/>
             )}
 
             {/* Description/Content - FLEXIBLE AND SCROLLABLE */}
-            <div className="flex-1 overflow-y-auto bg-white border border-gray-200 rounded p-2 mb-2 min-h-0">
-              <p className="text-gray-700 text-xs leading-relaxed">
-                {card.content}
-              </p>
-            </div>
+            {card.content && (
+              <div className="flex-1 overflow-y-auto bg-white border border-gray-200 rounded p-2 mb-2 min-h-0">
+                <p className="text-gray-700 text-xs leading-relaxed">
+                  {card.content}
+                </p>
+              </div>
+            )}
 
             {/* Technologies */}
             {card.technologies && card.technologies.length > 0 && (
