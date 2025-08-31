@@ -6,6 +6,9 @@ export interface Card {
   type?: string;
   proficiency?: number;
   yearsOfExperience?: string;
+  employer?: string;
+  field?: string;
+  hobbies?: string[];
   description?: string;
   status?: 'mastered' | 'advanced' | 'proficient' | 'improving' | 'basic' | 'learning';
   icon?: string;
