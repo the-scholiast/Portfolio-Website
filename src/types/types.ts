@@ -24,9 +24,6 @@ export interface PersonalInfo {
   name: string;
   title: string;
   email: string;
-  phone: string;
-  location: string;
-  linkedin: string;
   github: string;
   profilePicture: string;
   description: string;
@@ -36,5 +33,4 @@ export interface PersonalInfo {
 export interface DetailedCardProps {
   card: Card | null;
   currentCategory: Category | null;
-  index: number;
 }

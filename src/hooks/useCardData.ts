@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import type { Category, Card } from '../types/types';
-import { projectsCards, aboutCards, contactCards, skillsCards } from '../data';
+import { projectsCards, aboutCards, skillsCards } from '../data';
 
 /**
  * Custom hook for managing card data based on current category
