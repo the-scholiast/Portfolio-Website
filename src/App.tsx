@@ -108,35 +108,47 @@ const App: React.FC = () => {
 
                 {currentCategory === 'home' ? (
                   /* Cover Page */
-                  <div className="flex flex-col justify-center items-center h-full text-center p-4">
+                  <div className="flex flex-col justify-center items-center h-full text-center p-4 overflow-hidden">
                     {/* Header */}
-                    <div className="text-white font-black text-4xl md:text-6xl lg:text-7xl xl:text-7xl tracking-wider drop-shadow-lg relative z-10"
-                      style={{ fontFamily: 'Impact, "Arial Black", sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                    <div className="text-white font-black text-2xl md:text-4xl lg:text-5xl xl:text-5xl tracking-wider drop-shadow-lg relative z-10"
+                      style={{
+                        fontFamily: 'Impact, "Arial Black", sans-serif',
+                        textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                        fontSize: 'clamp(2rem, 6vw, 5rem)' 
+                      }}>
                       {personalInfo.header}
                     </div>
-                    <div className="flex flex-row justify-center items-center text-center p-6 gap-6 md:gap-8">
+
+                    {/* Original flex-row layout */}
+                    <div className="flex flex-row justify-center items-center text-center p-6 gap-6 md:gap-8 overflow-hidden">
                       {/* Profile Picture */}
                       <div>
                         <img
                           src={cachedProfileImage}
                           alt={`${personalInfo.name} profile`}
                           className="w-28 h-36 md:w-36 md:h-48 lg:w-44 lg:h-56 rounded-xl border-4 border-gray-600 shadow-lg object-cover"
+                          style={{ maxWidth: '100%', height: 'auto' }}
                         />
                       </div>
+
                       {/* Name and Title Cards */}
-                      <div className="flex flex-col items-center gap-4 mb-6">
-                        {/* Name Card - Yellow Gradient */}
+                      <div className="flex flex-col items-center gap-4 mb-6 overflow-hidden">
+                        {/* Name Card */}
                         <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-4 rounded-xl border-4 border-yellow-700 shadow-2xl relative overflow-hidden">
                           {/* Card shine effect */}
                           <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
 
-                          <h1 className="text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider drop-shadow-lg relative z-10"
-                            style={{ fontFamily: 'Impact, "Arial Black", sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                          <h1 className="text-white font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wider drop-shadow-lg relative z-10"
+                            style={{
+                              fontFamily: 'Impact, "Arial Black", sans-serif',
+                              textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+                              fontSize: 'clamp(1.5rem, 4vw, 3rem)' 
+                            }}>
                             {personalInfo.name}
                           </h1>
                         </div>
 
-                        {/* Title Card - Blue Gradient */}
+                        {/* Title Card */}
                         <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-3 rounded-lg border-3 border-blue-700 shadow-xl relative overflow-hidden">
                           {/* Card shine effect */}
                           <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none"></div>
@@ -146,7 +158,11 @@ const App: React.FC = () => {
                           <div className="absolute right-0 top-0 bottom-0 w-1 bg-blue-300 opacity-60"></div>
 
                           <h2 className="text-white font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-wide drop-shadow-md relative z-10"
-                            style={{ fontFamily: 'Trebuchet MS, Arial, sans-serif', textShadow: '1px 1px 3px rgba(0,0,0,0.4)' }}>
+                            style={{
+                              fontFamily: 'Trebuchet MS, Arial, sans-serif',
+                              textShadow: '1px 1px 3px rgba(0,0,0,0.4)',
+                              fontSize: 'clamp(1rem, 3vw, 3rem)' 
+                            }}>
                             {personalInfo.title}
                           </h2>
                         </div>
@@ -154,29 +170,46 @@ const App: React.FC = () => {
                     </div>
 
                     {/* Personal Description */}
-                    <div className="max-w-2xl mb-6 md:mb-8">
-                      <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed">
+                    <div className="max-w-2xl mb-6 md:mb-8 overflow-hidden">
+                      <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed"
+                        style={{
+                          fontSize: 'clamp(0.875rem, 3vw, 1.25rem)' 
+                        }}>
                         {personalInfo.description}
                       </p>
                     </div>
-                    <div className='flex justify-between'>
+
+                    <div className='flex justify-between overflow-hidden'>
                       {/* Action Buttons */}
                       <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
                         <button
                           onClick={handleEmailCopy}
                           className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl"
+                          style={{
+                            fontSize: 'clamp(0.75rem, 2.5vw, 1.25rem)' 
+                          }}
                         >
                           {emailCopied ? '✓ Copied!' : 'Copy Email'}
                         </button>
                         <button
                           onClick={handleResumeDownload}
                           className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl"
+                          style={{
+                            fontSize: 'clamp(0.75rem, 2.5vw, 1.25rem)'
+                          }}
                         >
                           Download Resume
                         </button>
                       </div>
                     </div>
-                    <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl">👆 Select a category above to flip through pages</p>
+
+                    {/* Bottom text */}
+                    <p className="mt-6 md:mt-8 text-gray-500 text-base md:text-lg lg:text-xl"
+                      style={{
+                        fontSize: 'clamp(0.75rem, 2.5vw, 1.25rem)' 
+                      }}>
+                      👆 Select a category above to flip through pages
+                    </p>
                   </div>
                 ) : (
                   <>
