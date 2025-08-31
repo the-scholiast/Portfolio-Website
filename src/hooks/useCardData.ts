@@ -16,6 +16,8 @@ export const useCardData = (currentCategory: Category | null, resetPage: () => v
         return projectsCards;
       case 'skills':
         return skillsCards;
+      case 'home':
+        return [];
       default:
         return [];
     }

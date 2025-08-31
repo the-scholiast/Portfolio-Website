@@ -40,7 +40,7 @@ const App: React.FC = () => {
           <img
             src={personalInfo.pokerChip}
             alt={`Poker chip rotating`}
-            className="w-28 h-34 md:w-24 md:h-24 lg:w-44 lg:h-50 animate-spinHorizontal"
+            className="w-18 h-18 md:w-24 md:h-24 lg:w-32 lg:h-32 animate-spinHorizontal"
           />
         </div>
 
@@ -55,12 +55,6 @@ const App: React.FC = () => {
               onClick={handleCategoryClick}
             />
           ))}
-
-          {currentCategory && (
-            <button onClick={handleBackToCover}>
-              📖 Cover
-            </button>
-          )}
         </div>
       </div>
 
@@ -69,7 +63,7 @@ const App: React.FC = () => {
         {/* Binder */}
         <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-2xl relative border-4 border-gray-700 binder-shadow">
           {/* Binder rings */}
-          {currentCategory && (
+          {currentCategory !== 'home' && (
             <div className="absolute left-2 md:left-3 lg:left-5 top-0 bottom-0 flex flex-col justify-between py-8 md:py-12 lg:py-16">
               {[1, 2, 3].map((ring) => (
                 <div
@@ -91,7 +85,7 @@ const App: React.FC = () => {
               {/* Front Page (Cover or Current Content) */}
               <div className="absolute inset-0 backface-hidden bg-gray-300 rounded-2xl shadow-xl p-1">
 
-                {currentCategory === null ? (
+                {currentCategory === 'home' ? (
                   /* Cover Page */
                   <div className="flex flex-col justify-center items-center h-full text-center p-4">
                     {/* Header */}

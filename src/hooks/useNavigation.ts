@@ -10,6 +10,7 @@ export const useNavigation = () => {
   const [isFlipping, setIsFlipping] = useState(false);
 
   const navigationItems = [
+    { category: 'home' as const, label: 'Home' },
     { category: 'projects' as const, label: 'Projects' },
     { category: 'skills' as const, label: 'Skills' },
     { category: 'about me' as const, label: 'About Me' },
@@ -17,7 +18,7 @@ export const useNavigation = () => {
 
   const handleCategoryClick = (category: Category) => {
     if (currentCategory === category) return;
-    
+
     setIsFlipping(true);
     setTimeout(() => {
       setCurrentCategory(category);
@@ -28,7 +29,7 @@ export const useNavigation = () => {
   const handleBackToCover = () => {
     setIsFlipping(true);
     setTimeout(() => {
-      setCurrentCategory(null);
+      setCurrentCategory('home');
       setIsFlipping(false);
     }, 500);
   };
