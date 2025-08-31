@@ -16,7 +16,7 @@ export const aboutCards: Card[] = [
     type: "Work Experience",
     yearsOfExperience: "May 2018 - Sept 2024",
     employer: "Self-employed",
-    content: "Started off with less than $1000 and was able to yield over 6 figures in profit over the years. Played online and specialized in multi-table tournaments (MTTs).",
+    content: "Started with less than $1,000 and generated over six figures in profit over the years. Played online, specializing in multi-table tournaments (MTTs).",
     icon: "♠️"
   },
   {
@@ -25,7 +25,7 @@ export const aboutCards: Card[] = [
     type: "Work Experience",
     employer: "Parq Vancouver Casino",
     yearsOfExperience: "Mar 2017 - Apr 2018",
-    content: "Promoted to Poker Dealer from Table Games Dealer in record time! Provided excellent service in managing games as efficiently as possible.",
+    content: "Promoted to Poker Dealer from Table Games Dealer in record time, providing excellent service while managing games efficiently.",
     icon: "🃏"
   },
   {
@@ -34,7 +34,7 @@ export const aboutCards: Card[] = [
     type: "Education",
     yearsOfExperience: "Sept 2011 - May 2014",
     field: "Criminology",
-    content: "My original passion was to become a criminal lawyer or a detective. Unfortunately, my interests changed and I did not complete my degree; however, I still learned a lot about myself!",
+    content: "My original passion was to become a criminal lawyer or detective. Although my interests shifted and I did not complete my degree, the experience taught me a lot about myself.",
     icon: "🎓"
   },
   {
