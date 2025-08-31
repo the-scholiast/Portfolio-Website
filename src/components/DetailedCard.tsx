@@ -1,6 +1,7 @@
 import React from 'react';
 import type { DetailedCardProps } from '../types/types';
 import SkillsDetail from './SkillsDetail';
+import AboutDetail from './aboutDetail';
 
 const DetailedCard: React.FC<DetailedCardProps> = ({
   card,
@@ -56,9 +57,9 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
 
           {/* Card Header */}
           <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-2 border-b-2 border-yellow-700 flex-shrink-0">
-            <div className="flex items-center gap-2">
-              <span className="text-lg">{card.icon}</span>
-              <h2 className="text-white font-bold text-sm leading-tight truncate flex-1">{card.title}</h2>
+            <div className="flex items-center gap-2 text-lg">
+              <span className="">{card.icon}</span>
+              <h2 className="text-white font-bold leading-tight truncate flex-1">{card.title}</h2>
             </div>
           </div>
 
@@ -66,18 +67,25 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
           <div className="p-2 flex flex-col flex-1 min-h-0">
 
             {/* Card Type/Level Bar */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-2 py-1 rounded mb-2 text-center flex-shrink-0">
-              <span className="font-bold text-xs">
-                {currentCategory === 'projects' ? `${card.type}` :
-                  currentCategory === 'about me' ? 'PROFILE' :
-                    currentCategory === 'skills' ? `${card.type}` :
-                      'CONTACT'}
-              </span>
-            </div>
+            {card.type && (
+              <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-2 py-1 rounded mb-2 text-center flex-shrink-0">
+                <span className="font-bold text-xs">
+                  {currentCategory === 'projects' ? `${card.type}` :
+                    currentCategory === 'about me' ? `${card.type}` :
+                      currentCategory === 'skills' ? `${card.type}` :
+                        'CONTACT'}
+                </span>
+              </div>
+            )}
 
             {/* Skills-specific stats */}
             {currentCategory === 'skills' && (
-              <SkillsDetail card={card}/>
+              <SkillsDetail card={card} />
+            )}
+
+            {/* About me-specific stats */}
+            {currentCategory === 'about me' && (
+              <AboutDetail card={card} />
             )}
 
             {/* Description/Content - FLEXIBLE AND SCROLLABLE */}
