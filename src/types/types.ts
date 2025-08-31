@@ -5,12 +5,12 @@ export interface Card {
   name?: string;
   type?: string;
   proficiency?: number;
-  yearsOfExperience?: number;
+  yearsOfExperience?: string;
   description?: string;
-  status?: 'mastered' | 'proficient' | 'learning' | 'exploring';
+  status?: 'mastered' | 'advanced' | 'proficient' | 'improving' | 'basic' | 'learning';
   icon?: string;
   title: string;
-  content: string;
+  content?: string;
   technologies?: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -28,4 +28,10 @@ export interface PersonalInfo {
   profilePicture: string;
   description: string;
   pokerChip: string;
+}
+
+export interface DetailedCardProps {
+  card: Card | null;
+  currentCategory: Category | null;
+  index: number;
 }
