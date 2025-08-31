@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { personalInfo } from './data';
 import NavigationButton from './components/NavigationButton';
@@ -13,9 +13,7 @@ const App: React.FC = () => {
     isFlipping,
     navigationItems,
     handleCategoryClick,
-    handleBackToCover
   } = useNavigation();
-
   const {
     currentPage,
     resetPage,
@@ -24,13 +22,25 @@ const App: React.FC = () => {
     handleNextPage,
     handlePrevPage
   } = usePageState();
-
+  const [emailCopied, setEmailCopied] = useState(false);
   const { getCurrentCards } = useCardData(currentCategory, resetPage);
-
   // Get cards for current page
   const allCards = getCurrentCards;
   const currentPageCards = getCurrentPageCards(allCards);
   const totalPages = getTotalPages(allCards.length);
+
+  const handleEmailCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(personalInfo.email);
+      setEmailCopied(true);
+      // Reset the message after 3 seconds
+      setTimeout(() => setEmailCopied(false), 3000);
+    } catch (error) {
+      // Fallback for older browsers or if clipboard access fails
+      console.error('Failed to copy email:', error);
+      alert(`Email: ${personalInfo.email}`);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col wooden-desk-bg p-3">
@@ -141,10 +151,12 @@ const App: React.FC = () => {
                     <div className='flex justify-between'>
                       {/* Action Buttons */}
                       <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                        <a href={`mailto:${personalInfo.email}`}
-                          className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 no-underline text-base md:text-lg lg:text-xl">
-                          Email Me
-                        </a>
+                        <button
+                          onClick={handleEmailCopy}
+                          className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl"
+                        >
+                          {emailCopied ? '✓ Copied!' : 'Copy Email'}
+                        </button>
                         <button className="px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 text-base md:text-lg lg:text-xl">
                           Download Resume
                         </button>
