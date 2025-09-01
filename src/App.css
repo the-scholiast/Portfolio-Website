@@ -82,15 +82,15 @@
 
 @media (min-width: 769px) and (max-width: 1199px) {
   .binder-page {
-    width: min(900px, 80vw);
-    min-height: calc(100vh - 180px);
+    width: min(800px, 80vw);
+    min-height: calc(100vh - 170px);
   }
 }
 
 @media (min-width: 1200px) {
   .binder-page {
-    width: min(1000px, 75vw);
-    min-height: calc(100vh - 200px);
+    width: min(900px, 75vw);
+    min-height: calc(100vh - 180px);
   }
 }
 

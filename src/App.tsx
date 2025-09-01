@@ -86,7 +86,7 @@ const App: React.FC = () => {
         <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 p-6 md:p-8 lg:p-10 rounded-3xl shadow-2xl relative border-4 border-gray-700 binder-shadow binder-container">
           {/* Binder rings */}
           {currentCategory !== 'home' && (
-            <div className="absolute left-2 md:left-3 lg:left-5 top-0 flex flex-col gap-8 py-8 md:py-12 lg:py-16 h-full justify-center">
+            <div className="absolute left-2 md:left-3 lg:left-5 top-0 flex flex-col gap-8 py-8 md:py-12 lg:py-16 h-full justify-between">
               {[1, 2, 3].map((ring) => (
                 <div
                   key={ring}
